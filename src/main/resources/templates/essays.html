@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Essays View</title>
+<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+</head>
+<body>
+	<div class="container">
+
+		
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Essay</th>
+					<th scope="col">Content</th>
+					<th scope="col">Grade</th>
+					<th scope="col">Data</th>
+					<th scope="col">-------</th>
+					<th scope="col">-------</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="essay:${essays}">
+					<td th:text="${essay.name}"></td>
+					<td th:text="${#strings.abbreviate(essay.content,100)} "></td>
+					<td th:text="${essay.grade}"></td>
+					<td th:text="${#dates.format(essay.data, 'dd-MMM-yyyy HH:mm:ss')}"></td>
+					<td>
+						<form th:action="@{|/essay/${essay.id}/delete|}" th:object="${essay}"  th:method="delete">
+							<input type="hidden" th:value="${essay.id}" name="id" />
+							<button type="submit" class="btn" >Delete</button>
+						</form>
+					</td>
+					<td>
+						<form th:action="@{|/essay/${essay.id}/show|}" th:object="${essay}"  th:method="get">
+							<input type="hidden" th:value="${essay.id}" name="id" />
+							<button type="submit" class="btn" >Show</button>
+						</form>
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+		
+		<a href="/essay/formEssay">New</a>
+
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Essays Form</title>
+<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+</head>
+<body>
+	<div class="container">
+		<form th:action="@{|/essay/${essay.id}/update|}" th:object="${essay}"  th:method="put">
+			<input type="hidden" th:value="${essay.id}" name="id" />
+			<div class="form-group">
+				<label for="exampleFormControlInput1">Name</label> 
+				<input name="name" type="text" class="form-control"	id="exampleFormControlInput1" placeholder="name" 
+				th:value="${essay.name}">
+			</div>
+
+			<div class="form-group">
+				<label for="exampleFormControlSelect1">Grade</label>
+				<select class="form-control" id="exampleFormControlSelect1" name="grade">
+					<option th:selected="${essay.grade} == 5">5</option>
+					<option th:selected="${essay.grade} == 6">6</option>
+					<option th:selected="${essay.grade} == 7">7</option>
+					<option th:selected="${essay.grade} == 8">8</option>
+					<option th:selected="${essay.grade} == 9">9</option>
+					
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="exampleFormControlTextarea1">Content textarea</label>
+				<textarea class="form-control" id="content" name="content" rows="5" th:text="${essay.content}">
+				</textarea>
+			</div>
+			<button type="submit" class="btn btn-success">Submit</button>
+			
+		</form>
+	</div>
+
+</body>
+</html>
+
