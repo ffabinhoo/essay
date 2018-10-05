@@ -9,13 +9,14 @@
 	<div class="container">
 		<form action="insert" method="post" name="create">
 			<div class="form-group">
-				<label for="exampleFormControlInput1">Name</label> 
-				<input name="name" type="text" class="form-control"	id="exampleFormControlInput1" placeholder="name">
+				<label for="exampleFormControlInput1">Name</label> <input
+					name="name" type="text" class="form-control"
+					id="exampleFormControlInput1" placeholder="name">
 			</div>
 
 			<div class="form-group">
-				<label for="exampleFormControlSelect1">Grade</label>
-				<select class="form-control" id="exampleFormControlSelect1" name="grade">
+				<label for="exampleFormControlSelect1">Grade</label> <select
+					class="form-control" id="exampleFormControlSelect1" name="grade">
 					<option>5</option>
 					<option>6</option>
 					<option>7</option>
@@ -26,10 +27,19 @@
 
 			<div class="form-group">
 				<label for="exampleFormControlTextarea1">Content textarea</label>
-				<textarea class="form-control" id="content" name="content" rows="5" >
+				<textarea class="form-control" id="content" name="content" rows="5">
 				</textarea>
 			</div>
-			<button type="submit" class="btn btn-success">Submit</button>
+
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-lg-12">
+						<a class="btn btn-primary  float-right" href="/essay/list" role="button">List</a>
+						<button type="submit" class="btn btn-success">Submit</button>
+					</div>
+				</div>
+			</div>
+
 		</form>
 	</div>
 
