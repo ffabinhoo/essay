@@ -1,0 +1,12 @@
+mvnw clean package && cp target/essay-1.0.jar docker/
+
+#volume created(docker volume create mongodata) for turn around windows issues
+docker run --name essay-mongo --network=spring_demo_net -v mongodata:/data/db -d mongo  
+
+
+#docker directory
+docker build --tag=essay-1.0 .
+
+docker run --name spring-essay --network=spring_demo_net -p 8080:8080  essay-1.0 
+
+
