@@ -7,6 +7,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -62,7 +63,7 @@ public class EssayController {
     }
     
     @RequestMapping(value = "/{id}/show", method = RequestMethod.GET)
-    public String show(@RequestParam("id") String id, Model model){
+    public String show(@PathVariable String id, Model model){
 		Optional<Essay> essay = repository.findById(id);
 		model.addAttribute("essay", essay.get());
         return "formUpdateEssay";

@@ -7,9 +7,6 @@
 </head>
 <body>
 	<div class="container">
-
-		
-
 		<table class="table">
 			<thead>
 				<tr>
@@ -19,7 +16,6 @@
 					<th scope="col">Data</th>
 					<th scope="col">-------</th>
 					<th scope="col">-------</th>
-
 				</tr>
 			</thead>
 			<tbody>
@@ -35,20 +31,14 @@
 						</form>
 					</td>
 					<td>
-						<form th:action="@{|/essay/${essay.id}/show|}" th:object="${essay}"  th:method="get">
-							<input type="hidden" th:value="${essay.id}" name="id" />
+						<form th:action="@{|/essay/${essay.id}/show|}"  th:method="get">
 							<button type="submit" class="btn" >Show</button>
 						</form>
 					</td>
 				</tr>
-
 			</tbody>
 		</table>
-		
-		
 		<a class="btn btn-primary" href="/essay/formEssay" role="button">New</a>
-
-
 	</div>
 </body>
 </html>
